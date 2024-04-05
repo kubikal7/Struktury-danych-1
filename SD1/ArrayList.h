@@ -95,7 +95,7 @@ public:
         return capacity;
     }
 
-    bool empty() const {
+    bool isEmpty() const {
         return size ? true : false;
     };
 
