@@ -1,5 +1,6 @@
 #pragma once
 template<typename T>
+//interface defining all operations we will use on different structures
 class List
 {
 public:

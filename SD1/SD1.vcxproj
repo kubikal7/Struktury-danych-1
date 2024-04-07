@@ -134,8 +134,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayList.h" />
+    <ClInclude Include="DoublyLinkedList.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Scanner.h" />
+    <ClInclude Include="SinglyLinkedList-head.h" />
+    <ClInclude Include="SinglyLinkedList-tail.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
