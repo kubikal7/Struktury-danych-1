@@ -38,10 +38,13 @@
     <ClInclude Include="Scanner.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="SinglyLinkedList.h">
+    <ClInclude Include="SinglyLinkedList-tail.h">
       <Filter>Pliki źródłowe</Filter>
     </ClInclude>
     <ClInclude Include="DoublyLinkedList.h">
+      <Filter>Pliki źródłowe</Filter>
+    </ClInclude>
+    <ClInclude Include="SinglyLinkedList-head.h">
       <Filter>Pliki źródłowe</Filter>
     </ClInclude>
   </ItemGroup>
