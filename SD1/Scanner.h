@@ -9,7 +9,7 @@ template<typename T>
 class Scanner
 {
 public:
-    void scanFile(const std::string& filename, ArrayList<T>& list, int count) {
+    void scanFile(const std::string& filename, List<T>& list, int count) {
         ifstream file(filename);
         if (!file.is_open()) {
             cout << "Cannot open file!" << endl;
