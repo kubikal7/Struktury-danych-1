@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    /*ArrayList<int> arraylist;*/
+    //ArrayList<int> arraylist;
     //SinglyLinkedList<int> list;
     DoublyLinkedList<int> list; //initializes data structure here doublylinkedlist
     Scanner<int> scanner; 

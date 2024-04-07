@@ -5,11 +5,10 @@
 using  namespace std;
 
 template<typename T>
-class Node { // Definicja klasy wêz³a
+class Node { //node class definition
 public:
-    T value;  // Dane przechowywane w wêŸle
-    Node* next; // WskaŸnik na nastêpny wêze³ w liœcie
-    // Konstruktor inicjalizuj¹cy wêze³ wartoœci¹ i opcjonalnym wskaŸnikiem na nastêpny wêze³
+    T value; 
+    Node* next;
     Node(T val, Node* nxt = nullptr) : value(val), next(nxt) {
     }
 };
@@ -33,7 +32,7 @@ public:
             current = next;
         }
     }
-    //adding new element to the end of the list (using the tail pointer avoiding going through full list)
+    //method adding new element to the end of the list (using the tail pointer avoiding going through full list)
     void push_back(T element){
         Node<T>* newNode = new Node<T>(element);
         if (head == nullptr){
@@ -46,7 +45,7 @@ public:
         }
         listsize++;
     }
-    //adds new element to the start of the list
+    //method adds new element to the start of the list (adjusting head and sometimes tail)
     void push_front(T element){
         Node<T>* newNode = new Node<T>(element, head);
         head = newNode;
@@ -55,7 +54,7 @@ public:
         }
         listsize++;
     }
-    //inserts new element at a given index
+    //method inserts new element at a given index (similar to head list but adjusts tail if adding at the end)
     void addElement(T element, int index){
         if (index < 0 or index > listsize){
             cout << "zly index" <<endl;
@@ -76,7 +75,7 @@ public:
             listsize++;
         }
     }
-    //retrieves element by index
+    //method returns element by index
     T getElement(int index){
         if (index < 0 or index >= listsize){
             cout<<"out of range"<<endl;
@@ -88,7 +87,7 @@ public:
         }
         return t->value;
     }
-    //searches for element and returns its index or -1 if not found (starting from head)
+    //method searches for element and returns its index or -1 if not found (starting from head)
     int findElement(T element) const{
         Node<T>* t = head;
         int index = 0;
@@ -101,11 +100,11 @@ public:
         }
         return -1;
     }
-    //returns the current size
+    //method returns the current size
     int getSize() const{
         return listsize;
     }
-    //checks if list is empty
+    //method checks if list is empty
     bool isEmpty() const{
         return head == nullptr;
     }

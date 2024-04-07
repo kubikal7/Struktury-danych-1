@@ -5,7 +5,7 @@
 using namespace std;
 
 template<typename T>
-class DNode{ //Represents the nodes in the list, each holding a value and pointers to both the previous and next nodes.
+class DNode{ //node class definition, each holding a value and pointers to previous and next nodes
 public:
     T value;
     DNode* prev;
@@ -13,7 +13,7 @@ public:
     DNode(T val, DNode* prv = nullptr, DNode* nxt = nullptr) : value(val), prev(prv), next(nxt){
     }
 };
-//implements SinglyLinkedList with head and tail
+//implements DoublyLinkedList
 template<typename T>
 class DoublyLinkedList : public List<T>{
 private:
@@ -23,10 +23,10 @@ private:
 
 public:
 
-    //Initializes an empty list with head and tail set to nullptr and listsize to 0.
+    //initializes empty list with head and tail set to nullptr and listsize to 0
     DoublyLinkedList() : head(nullptr), tail(nullptr), listsize(0){
     }
-    //Iterates through the list to delete all nodes, preventing memory leaks.
+    //iterates through the list to delete all nodes preventing memory leaks
     virtual ~DoublyLinkedList(){
         DNode<T>* current = head;
         while (current != nullptr){
@@ -35,7 +35,7 @@ public:
             current = next;
         }
     }
-    // Adds a new element to the end of the list. It directly accesses the tail, making the operation efficient.
+    //method adds new element to the end of the list (directly accesses tail making operation efficient)
     void push_back(T element){
         DNode<T>* newNode = new DNode<T>(element);
         if (tail == nullptr){
@@ -48,7 +48,7 @@ public:
         }
         listsize++;
     }
-    // Inserts a new element at the beginning of the list, updating head and prev pointer of the old head.
+    //method inserts new element to the start of the list (updating head and prev pointer of old head)
     void push_front(T element){
         DNode<T>* newNode = new DNode<T>(element);
         if (head == nullptr) {
@@ -61,7 +61,7 @@ public:
         }
         listsize++;
     }
-    // Inserts a new element at a specified index, updating relevant next and prev pointers to maintain list integrity.
+    //method inserts new element at a given index (updating next and prev pointers to keep list integrity)
     void addElement(T element, int index){
         if (index < 0 or index > listsize){
             cout << "zly index" <<endl;
@@ -84,7 +84,7 @@ public:
             listsize++;
         }
     }
-    // Retrieves an element by index, optimizing search direction based on the index's position relative to the list's size.
+    //method returns element by index, (search direction based on index's position relative to list size)
     T getElement(int index){
         if (index < 0 or index >= listsize){
             cout << "out of range" << endl;
@@ -105,7 +105,7 @@ public:
         }
         return current->value;
     }
-    // Searches for an element and returns its index or -1 if not found. It traverses the list starting from head.
+    //method searches for element and returns its index or -1 if not found (starting from head)
     int findElement(T element) const{
         DNode<T>* current = head;
         int index = 0;
@@ -118,11 +118,11 @@ public:
         }
         return -1;
     }
-    // Returns the current size of the list.
+    //method returns the current size
     int getSize() const{
         return listsize;
     }
-    // Checks whether the list is empty by verifying if listsize is 0
+    //method checks if list is empty
     bool isEmpty() const{
         return listsize == 0;
     }
