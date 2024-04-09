@@ -11,6 +11,12 @@ public:
     virtual void push_front(T element) = 0;
 
     virtual void addElement(T element, int index) = 0;
+    
+    virtual T pop_front() = 0;
+
+    virtual T pop_back() = 0;
+
+    virtual T deleteElement(int index) = 0;
 
     virtual T getElement(int index) = 0;
 

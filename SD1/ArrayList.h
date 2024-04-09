@@ -16,8 +16,8 @@ public:
         delete[] tab;
     }
     //adding elements - if the array reaches its capacity, it's resized to double its size and elements are copied to new array
-    //method adds a new element to the end of the array 
-    void push_back(T element) {
+    
+    void push_back(T element) {                             //method adds a new element to the end of the array 
         if (size == capacity) {
             capacity *= 2;
             T* newTab = new T[capacity];
@@ -31,8 +31,8 @@ public:
         tab[size] = element;
         size++;
     };
-    //method adds a new element to the start of the array
-    void push_front(T element) {
+    
+    void push_front(T element) {                            //method adds a new element to the start of the array
         if (size == capacity) {
             capacity *= 2;
             T* newTab = new T[capacity];
@@ -50,8 +50,8 @@ public:
         tab[0] = element;
         size++;
     };
-    //method inserts a new element at a given index
-    void addElement(T element, int index) {
+    
+    void addElement(T element, int index) {                    //method inserts a new element at a given index
         if (index < 0 || index > size) {
             cout << "Invalid index!" << endl;
             return;
@@ -74,12 +74,57 @@ public:
         tab[index] = element;
         size++;
     };
-    //method returns element by index
-    T getElement(int index) {
+
+    T pop_front() {                                     //delete and return first element in a list
+        if (size == 0) {
+            cout << "List is empty" << endl;
+            return T();                                 //if list is empty returns default T
+        }
+
+        T poppedValue = tab[0]; 
+        for (int i = 0; i < size - 1; i++) {
+            tab[i] = tab[i + 1]; 
+        }
+        size--; 
+
+        return poppedValue;
+    }
+
+    T pop_back() {                                      //delete and return last element
+        if (size == 0) {
+            cout << "List is empty" << endl;
+            return T();                                 //if list is empty returns default T
+        }
+
+        size--; 
+
+        return tab[size];                               //returns value of last element
+    }
+
+    T deleteElement(int index) {                        //delete and return element at given index
+        if (index < 0 || index >= size) {
+            cout << "Invalid index!" << endl;
+            return T();                                 //if list is empty returns default T
+        }
+
+        T deletedElement = tab[index]; 
+
+        
+        for (int i = index; i < size - 1; i++) {
+            tab[i] = tab[i + 1];
+        }
+
+        size--; 
+
+        return deletedElement;
+    }
+
+    
+    T getElement(int index) {                           //method returns element by index
         return tab[index];
     };
-    //method searches for element and returns its index or -1 if not found
-    int findElement(T element) const {
+    
+    int findElement(T element) const {                  //method searches for element and returns its index or -1 if not found
         for (int i = 0; i < size; ++i) {
             if (tab[i] == element) {
                 return i;
@@ -87,16 +132,16 @@ public:
         }
         return -1;
     };
-    //method returns the number of elements
-    int getSize() const {
+   
+    int getSize() const {                               //method returns the number of elements
         return size;
     };
-    //method gives current array capacity
-    int getCapacity() const {
+    
+    int getCapacity() const {                           //method gives current array capacity
         return capacity;
     }
-    //method checks if list is empty
-    bool isEmpty() const {
+    
+    bool isEmpty() const {                              //method checks if list is empty
         return size ? true : false;
     };
 

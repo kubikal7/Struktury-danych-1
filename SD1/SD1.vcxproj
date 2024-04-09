@@ -127,9 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ArrayList.cpp" />
-    <ClCompile Include="List.cpp" />
-    <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="SD1.cpp" />
   </ItemGroup>
   <ItemGroup>
